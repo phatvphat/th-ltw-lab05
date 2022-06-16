@@ -17,5 +17,12 @@ namespace Lab05.Controllers
             List<Rubik> listRubik = (from r in dbContext.Rubik select r).ToList();
             return View(listRubik);
         }
+        public ActionResult Detail(int? id)
+        {
+            if (id == null) return HttpNotFound();
+            Rubik rubik = (from r in dbContext.Rubik select r).SingleOrDefault(s => s.id == id);
+            if (rubik == null) return HttpNotFound();
+            return View(rubik);
+        }
     }
 }

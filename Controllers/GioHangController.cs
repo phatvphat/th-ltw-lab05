@@ -50,7 +50,7 @@ namespace Lab05.Controllers
         private int TongSoLuongSanPham()
         {
             int tsl = 0;
-            List<Giohang> lstGiohang = LayGiohang();
+            List<Giohang> lstGiohang = Session["Giohang"] as List<Giohang>;
             if (lstGiohang != null)
             {
                 tsl = lstGiohang.Count;
